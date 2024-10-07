@@ -1,0 +1,44 @@
+/* --variable-color: red; */
+/* var(variable-color, default) 
+Las variables nativas de css nos ayudan a organizar nuestras colores, 
+o lo que  nostros quedramos modificar
+*/
+/* El pseudoelemento root es como seleccionar todo el cuerpo de la pagina web,
+es como usar la etiqueta html */
+/* Ejemplos */
+/* :root {
+    --Nombredetuvariable-color: rgb(68, 0, 116);
+} */
+
+body {
+    background: #223;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 600px;
+    background: grey;
+}
+
+.item {
+    height: 100px;
+    background-color: var(--Nombredetuvariable-color, black)
+}
+
+.item-1 {
+    --Nombredetuvariable-color: blue;
+}
+
+.item-2 {
+    --Nombredetuvariable-color: red;
+}
+
+.item-3 {
+    --Nombredetuvariable-color: rgb(0, 172, 0);
+}
+
+.item-4 {
+    --Nombredetuvariable-color: rgb(186, 186, 210);
+}
