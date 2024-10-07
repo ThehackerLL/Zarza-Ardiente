@@ -6,21 +6,22 @@ body,div,ul,li,a,h1,h2,h3,h4{
     padding: 0;
 }
 :root{
-    --bg-color: color-mix( in srgb, #f62 70%, #fff);
-    --sidebar-color: #fff;
-    --dark-color: #f62;
+    --bg-mix: color-mix( in srgb, #f62 70%, #fff);
+    --sidebar-white: #fff;
+    --dark-orange: #f62;
+    --trans-parent: transparent;
 }
 body{
-    background-color: var(--bg-color);
+    background-color: var(--bg-mix);
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
 /* SIDEBAR STYLES */
 
 .aside {
-    background-color: var(--sidebar-color);
+    background-color: var(--sidebar-white);
     position: fixed;
-    height: 110dvh;
+    height: 100dvh;
     width: clamp(220px, 35vw,300px);
     font-size: clamp(1rem, 2.2vw, 1.5rem);
     display: flex;
@@ -40,6 +41,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 .aside_item {
     list-style: none;
@@ -48,7 +50,9 @@ body{
     text-transform: uppercase;
     font-size: .9rem;
     padding-right: 6px;
-    color: var(--dark-color);
+    color: var(--dark-orange);
+    border-radius: 36px 0 0 36px;
+    position: relative;
 }
 .aside_item a {
     color: inherit;
@@ -57,6 +61,31 @@ body{
 .aside_item span{
     padding: 12px;
     font-size: 1.5rem;
+}
+.aside_item:hover{
+    background-color: var(--bg-mix);
+    color: var(--sidebar-white);
+}
+.aside_item::before,
+.aside_item::after{
+    content: '';
+    position: absolute;
+    right: 0%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--trans-parent);
+}
+.aside_item:hover::before{
+    border-bottom-right-radius: 25px ;
+    top: -10px;
+    content: '';
+    box-shadow: 4px 4px 0 4px var(--bg-mix);
+}
+.aside_item:hover::after{
+    bottom: -10px;
+    content: '';
+    box-shadow: 4px -4px 0 4px var(--bg-mix);
+    border-top-right-radius: 25px;
 }
 
 
